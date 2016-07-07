@@ -1,0 +1,17 @@
+<div class="row cells12" >
+    <div class="cell colspan2">
+        <ul class="sidebar2 green" ng-controller="EmergenciesController">
+            <li class="title">Notrufe</li>
+            <li ng-repeat="emergency in emergencies" ng-class="{active:isActive({{emergency.id}})}">
+                <a ui-sref="emergencies.details({id:emergency.id})" ui-sref-opts="{reload: true}">
+                    {{emergency.time | checkDate}}
+                    <br>
+                    {{emergency.firstname}} {{emergency.lastname}}
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="cell colspan9">
+        <div ui-view="detail"></div>
+    </div>
+</div>

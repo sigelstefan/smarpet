@@ -1,0 +1,32 @@
+<html ng-app="app" ng-cloak>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta lang="de">
+        <title>Startseite - SmarpetCenter</title>
+    </head>
+    <link href="/lib/css/metro.css" rel="stylesheet">
+    <link href="/lib/css/metro.css" rel="stylesheet">
+    <link href="/lib/css/metro-icons.css" rel="stylesheet">
+    <link href="/lib/css/metro-responsive.css" rel="stylesheet">
+    <link href="/lib/css/metro-schemes.css" rel="stylesheet">
+    <link href="/lib/css/metro-rtl.css" rel="stylesheet">
+    <link href="/lib/css/customize-center.css" rel="stylesheet">
+
+    <script src="/lib/js/jquery-2.2.3.js"></script>
+    <script src="/lib/js/metro.js"></script>
+    <script src="/lib/js/angular.js"></script>
+    <script src="/lib/js/angular-ui-router.js"></script>
+    <script src="/lib/js/moment-with-locales.js"></script>
+    <script src="/lib/js/highstock.js"></script>
+    <script src="/lib/js/highcharts-ng.js"></script>
+    <script src="app.js"></script>
+    
+    
+    <body>
+        <div ng-include src="'partials/nav/_navigation.html'"></div>
+        <div class="grid">
+            <div ui-view="list"></div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,13 @@
+<div class="row cells12" >
+    <div class="cell colspan2">
+        <ul class="sidebar2 green" ng-controller="PatientsController">
+            <li class="title">Patienten</li>
+            <li ng-repeat="patient in patients" ng-class="{active:isActive({{patient.id}})}">
+                <a ui-sref="patients.details({id:patient.id})" ui-sref-opts="{reload: true}">{{patient.firstname}} {{patient.lastname}}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="cell colspan9">
+        <div ui-view="detail"></div>
+    </div>
+</div>

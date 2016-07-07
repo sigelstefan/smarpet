@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<settings>
+  <person>
+    <firstname>Luise</firstname>
+    <lastname>Insel</lastname>
+    <vintage/>
+    <address/>
+    <phone>0711 12345</phone>
+  </person>
+  <contact>
+    <firstname>Anna</firstname>
+    <lastname>Pflegerin</lastname>
+    <address>Roland Pfleger, Ulmer Straße, Stuttgart, Deutschland</address>
+    <phone>0711 54321</phone>
+  </contact>
+  <living>
+    <alone>true</alone>
+    <walker>false</walker>
+    <pets>false</pets>
+    <fall>true</fall>
+    <dizziness>true</dizziness>
+  </living>
+</settings>

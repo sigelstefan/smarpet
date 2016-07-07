@@ -1,0 +1,22 @@
+{
+  "name": "smarthome",
+  "version": "1.0.0",
+  "description": "",
+  "main": "center.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "dateformat": "^1.0.12",
+    "express": "^4.14.0",
+    "fs": "0.0.2",
+    "mysql": "^2.11.1",
+    "npm": "^3.10.3",
+    "xml2js": "^0.4.17",
+    "xmlbuilder": "^8.2.2"
+  }
+}

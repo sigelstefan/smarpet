@@ -1,0 +1,196 @@
+<div class="tabcontrol green" id="tab-control">
+    <ul class="tabs">
+        <li>
+            <a href="#data">Persönliche Daten</a>
+        </li>
+        <li>
+            <a href="#activities" ng-click="resize()">Aktivitäten</a>
+        </li>
+        <li>
+            <a href="#diseases">Krankheiten</a>
+        </li>
+        <li>
+            <a href="#emergency-contact">Notfallkontakt</a>
+        </li>
+    </ul>
+    <div class="frames">
+        <div class="frame" id="data">
+            <div class="grid">
+                <div class="row cells2">
+                    <div class="cell">
+                        <div class="input-control modern text" data-role="input">
+                            <input id="firstname-input" type="text" style="padding-right: 5px;" ng-model="patient.firstname" readonly>
+                            <span class="label">Vorname</span>
+                            <span class="informer"></span>
+                        </div>
+                        <div class="input-control modern text" data-role="input">
+                            <input id="lastname-input" type="text" style="padding-right: 5px;" ng-model="patient.lastname" readonly>
+                            <span class="label">Nachname</span>
+                            <span class="informer"></span>
+                        </div>
+                        <div class="input-control modern text" data-role="input">
+                            <input type="number" style="padding-right: 5px;" ng-model="patient.yearOfBirth" readonly>
+                            <span class="label">Geburtsjahr</span>
+                            <span class="informer"></span>
+                        </div>
+                        <div class="input-control modern text" data-role="input">
+                            <input type="text" style="padding-right: 5px;" ng-model="patient.phone" readonly>
+                            <span class="label">Telefonnummer</span>
+                            <span class="informer"></span>
+                        </div>
+
+                        <div class="input-control modern text" data-role="input">
+                            <input id="pac-input" type="text" style="padding-right: 5px;" ng-model="patient.address" readonly>
+                            <span class=" label">Adresse</span>
+                            <span class="informer"></span>
+                        </div>
+                        <div class="input-control text link">
+                            <a href="callto://+0152222222"><span class="mif-skype"></span> {{patient.firstname}} {{patient.lastname}} anrufen...</a>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <div style='overflow:hidden;height:400px;width:autopx;'>
+                            <div id='map' style='height:400px;width:autopx;'></div>
+                            <style>
+                                #map img {
+                                    max-width: none!important;
+                                    background: none!important
+                                }
+
+                            </style>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame" id="diseases">
+            <div class="grid">
+                <div class="row cells2">
+                    <div class="cell">
+                        <div class="input-control modern text" data-role="input">
+                            <form>
+                                <input id="diseases-input" type="text" style="padding-right: 5px;" ng-model="disease.name">
+                                <span class="label">Erkrankung</span>
+                                <span class="informer"></span>
+                                <span class="placeholder" style="">Erkrankung eingeben</span>
+                                <button id="diseases-button" ng-click="addDisease(disease.name)" class="button"><span class="mif-plus"></span></button>
+                            </form>
+                        </div>
+                        <ul class="list list-diseases">
+                            <li ng-repeat="disease in diseases" id="{{disease.id}}">{{disease.name}}<button class='button list-delete-button' ng-click=deleteDisease($index)><span class='mif-cross'></span></button></li>
+                        </ul>
+                    </div>
+                    <div class="cell">
+                        <div class="input-control modern text" data-role="input">
+                            <form>
+                                <input id="drug-input" type="text" style="padding-right: 5px;" ng-model="drug.name">
+                                <span class="label">Medikament</span>
+                                <span class="informer"></span>
+                                <span class="placeholder" style="">Medikament eingeben</span>
+                                <button id="drug-button" ng-click="addDrug(drug.name)" class="button submit"><span class="mif-plus"></span></button>
+                            </form>
+                            
+                        </div>
+                        <ul class="list list-drugs">
+                            <li ng-repeat="drug in drugs" id="{{drug.id}}">{{drug.name}}<button class='button list-delete-button' ng-click=deleteDrug($index)><span class='mif-cross'></span></button></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="frame" id="emergency-contact">
+            <div class="grid">
+                <div class="row cells2">
+                    <div class="cell">
+                        <div class="input-control modern text" data-role="input">
+                            <input type="text" style="padding-right: 5px;" ng-model="contact.firstname" readonly>
+                            <span class="label">Vorname</span>
+                            <span class="informer"></span>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <div class="input-control modern text" data-role="input">
+                            <input type="text" style="padding-right: 5px;" ng-model="contact.lastname" readonly>
+                            <span class="label">Nachname</span>
+                            <span class="informer"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cells2">
+                    <div class="cell">
+                        <div class="input-control modern text" data-role="input">
+                            <input type="text" style="padding-right: 5px;" ng-model="contact.address" readonly>
+                            <span class=" label">Adresse</span>
+                            <span class="informer"></span>
+                        </div>
+                    </div>
+                    <div class="cell">
+                        <div class="input-control modern text" data-role="input">
+                            <input type="text" style="padding-right: 5px;" ng-model="contact.phone" readonly>
+                            <span class="label">Telefonnummer</span>
+                            <span class="informer"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-control link">
+                        <a href="callto://+0152222222"><span class="mif-skype"></span> {{contact.firstname}} {{contact.lastname}} anrufen!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="frame" id="activities">
+            <div class="grid">
+                <highchart id="chart" config="chartConfig" class="span12"></highchart>
+            </div>
+        </div>
+    </div>
+</div>
+<script type='text/javascript'>
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'));
+        var infowindow = new google.maps.InfoWindow();
+        var geocoder = new google.maps.Geocoder();
+        geocodeAddress(geocoder, map, infowindow);
+    }
+
+    function geocodeAddress(geocoder, resultsMap, iw) {
+
+        var addressString = document.getElementById('pac-input').value;
+        geocoder.geocode({
+            'address': addressString
+        }, function(results, status) {
+            if (status === google.maps.GeocoderStatus.OK) {
+                resultsMap.setZoom(17);
+                resultsMap.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: resultsMap,
+                    position: results[0].geometry.location
+                });
+
+                var address = '';
+                if (results[0].address_components) {
+                    address = [
+                        (results[0].address_components[1] && results[0].address_components[1].short_name || ''),
+                        (results[0].address_components[0] && results[0].address_components[0].short_name || ''),
+                        (results[0].address_components[2] && results[0].address_components[2].short_name || '')
+                    ].join(' ');
+                }
+                iw.setContent('<div><strong>' + document.getElementById('firstname-input').value + ' ' + document.getElementById('lastname-input').value + '</strong><br>' + address);
+                iw.open(resultsMap, marker);
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+    }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlnAfX9bD3wYAMivoES-5Jzb3-J5SvP54&signed_in=true&libraries=places&callback=initMap" async defer></script>
+<script>
+    $(document).ready(function() {
+        $("#tab-control").tabcontrol();
+        $("input").focus();
+        $("input").blur();
+    });
+
+</script>

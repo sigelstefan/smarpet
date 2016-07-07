@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta lang="de">
+    <title>Startseite - Smarpet</title>
+</head>
+<link href="/lib/css/metro.css" rel="stylesheet">
+<link href="/lib/css/metro.css" rel="stylesheet">
+<link href="/lib/css/metro-icons.css" rel="stylesheet">
+<link href="/lib/css/metro-responsive.css" rel="stylesheet">
+<link href="/lib/css/metro-schemes.css" rel="stylesheet">
+<link href="/lib/css/metro-rtl.css" rel="stylesheet">
+<link href="/lib/css/customize-floor.css" rel="stylesheet">
+<script src="/lib/js/jquery-2.2.3.js"></script>
+<script src="/lib/js/metro.js"></script>
+
+<body>
+    <div class="app-bar" style="margin-bottom:0px;">
+        <a class="app-bar-element" href="index.html">SmarpetFloor</a>
+        <span class="app-bar-divider"></span>
+        <ul class="app-bar-menu">
+            <li class="active"><a href="index.html">Startseite</a></li>
+            <li><a href="settings.html">Einstellungen</a></li>
+            <li><a href="">Hilfe</a></li>
+        </ul>
+        <a class="app-bar-element place-right" href="/smarpet-center/index.html">Center</a>
+
+    </div>
+    <div class="container">
+        <h1 class="leader align-center">
+            Willkommen bei Smarpet...
+        </h1>
+        <h3 class="header align-center">
+            Wir passen auf Sie auf!
+        </h3>
+        <div class="tile-group no-margin" style="width: 100%;padding-top:50px;">
+            <a href="settings.html">
+                <div class="tile-large bg-green fg-white" data-role="tile">
+                    <div class="tile-content slide-up-2 iconic">
+                        <div class="slide ">
+                            <span class="icon mif-wrench"></span>
+                            <span class="tile-text">Einstellungen</span>
+                        </div>
+                        <div class="slide-over bg-white fg-green padding10">
+                            <h3>Einstellungen</h3>
+                            <p class="text-accent">Mit Hilfe der Einstellungen können Sie Ihre persönlichen Daten, Wohnsituation und Notfallkontakt angeben.</p>
+                            <p class="text-accent">Klicken Sie dazu auf diese Schaltfläche.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="">
+                <div class="tile-large bg-blue fg-white" data-role="tile">
+                    <div class="tile-content slide-up-2 iconic">
+                        <div class="slide ">
+                            <span class="icon mif-info"></span>
+                            <span class="tile-text">Hilfe</span>
+                        </div>
+                        <div class="slide-over bg-white fg-blue padding10">
+                            <h3>Hilfe</h3>
+                            <p class="text-accent">Die Hilfe unterstützt Sie bei der Bedingung von Smarpet.</p>
+                            <p class="text-accent">Klicken Sie dazu auf diese Schaltfläche.</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var db = openDatabase('smarpetfloor', '1.0', 'my first database', 2 * 1024 * 1024);
+    db.transaction(function(tx) {
+        tx.executeSql('CREATE TABLE foo (id unique, text)');
+    });
+    console.log(db);
+
+</script>

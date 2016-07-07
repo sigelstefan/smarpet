@@ -1,0 +1,113 @@
+body {
+    font-size: 1.1rem;
+}
+
+h3.header {
+    color: dimgray;
+}
+
+.input-control.modern {
+    width: 100%;
+}
+
+.panel> .content {
+    padding: 15px;
+}
+
+.app-bar-menu li.active {
+    background-color: #128023;
+}
+
+.sidebar2.green li a {
+    padding: .75rem 2rem .75rem 20px;
+}
+
+.sidebar2.green li:hover> a {
+    background: #169f2c;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.sidebar2.green li.active> a {
+    background: #128023;
+    color: #ffffff;
+}
+
+.tabcontrol .tabs {
+    border-bottom: 2px #128023 solid;
+}
+
+.tabcontrol .tabs li.active a {
+    background-color: #128023;
+}
+
+.tabcontrol .frames .frame {
+    background-color: #ffffff;
+}
+
+.app-bar .app-bar-menu> li,
+.app-bar .app-bar-menu> li> a {
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.input-control.text .button {
+    height: 92%;
+    background-color: #128023;
+    color: #fff;
+}
+
+.button.list-delete-button {
+    float: right;
+}
+
+.button.hidden {
+    display: none;
+}
+
+.button.save {
+    background-color: #128023;
+    color: #ffffff;
+}
+
+ul.list {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.list> li {
+    line-height: 2.5rem;
+    list-style: none;
+}
+
+hr {
+    background-color: #128023;
+}
+
+.input-control.text.link {
+    width: auto;
+    padding-right: 20px;
+}
+
+.input-control.text> a> span {
+    font-size: 1.5em;
+}
+
+.input-control.text.link.red> a {
+    color: red;
+}
+
+@media screen and (max-width: 800px) {
+    .grid .row> .cell,
+    .grid .row[class*=cells]> .cell,
+    .grid .row> .cell[class*=colspan],
+    .grid .row[class*=cells]> .cell[class*=colspan] {
+        width: 100%;
+        margin: 0px 0px 10px 0px;
+    }
+    
+    .sidebar2 {
+        max-width: none;
+    }
+}

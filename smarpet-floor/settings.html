@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta lang="de">
+    <title>Einstellungen - Smarpet</title>
+</head>
+<link href="/lib/css/metro.css" rel="stylesheet">
+<link href="/lib/css/metro.css" rel="stylesheet">
+<link href="/lib/css/metro-icons.css" rel="stylesheet">
+<link href="/lib/css/metro-responsive.css" rel="stylesheet">
+<link href="/lib/css/metro-schemes.css" rel="stylesheet">
+<link href="/lib/css/metro-rtl.css" rel="stylesheet">
+<link href="/lib/css/customize-floor.css" rel="stylesheet">
+<script src="/lib/js/jquery-2.2.3.js"></script>
+<script src="/lib/js/metro.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlnAfX9bD3wYAMivoES-5Jzb3-J5SvP54&signed_in=true&libraries=places"></script>
+
+<body>
+    <div class="app-bar" style="margin-bottom:0px;">
+        <a class="app-bar-element" href="index.html">SmarpetFloor</a>
+        <span class="app-bar-divider"></span>
+        <ul class="app-bar-menu">
+            <li><a href="index.html">Startseite</a></li>
+            <li class="active"><a href="settings.html">Einstellungen</a></li>
+            <li><a href="">Hilfe</a></li>
+        </ul>
+        <a class="app-bar-element place-right" href="/smarpet-center/index.html">Center</a>
+    </div>
+    <div class="container">
+        <h1 class="leader align-center">
+            Einstellungen
+        </h1>
+        <div class="wizard" id="wizard">
+            <div class="steps">
+                <div class="step">
+                    <div class="grid">
+                        <div class="row cells12">
+                            <div class="cell colspan7">
+                                <h3 class="header">Persönliche Daten</h3>
+                                <div class="input-control modern text" data-role="input">
+                                    <input type="text" id="person-firstname">
+                                    <span class="label">Vorname</span>
+                                    <span class="informer"></span>
+                                    <span class="placeholder" style="">Vorname</span>
+                                </div>
+                                <div class="input-control modern text" data-role="input">
+                                    <input type="text" id="person-lastname">
+                                    <span class="label">Nachname</span>
+                                    <span class="informer"></span>
+                                    <span class="placeholder" style="">Nachname</span>
+                                </div>
+                                <div class="input-control modern text g-autocomplete" data-role="input">
+                                    <input type="text" id="person-address">
+                                    <span class="label">Adresse</span>
+                                    <span class="informer"></span>
+                                    <span class="placeholder" style="">Adresse</span>
+                                </div>
+                                <div class="input-control modern text" data-role="input">
+                                    <input type="text" id="person-phone">
+                                    <span class="label">Telefonnummer</span>
+                                    <span class="informer"></span>
+                                    <span class="placeholder" style="">Telefonnummer</span>
+                                </div>
+                                <div class="input-control modern text" data-role="input">
+                                    <input type="number" id="person-vintage">
+                                    <span class="label">Jahrgang</span>
+                                    <span class="informer"></span>
+                                    <span class="placeholder" style="">Jahrgang</span>
+                                </div>
+                            </div>
+                            <div class="cell colspan5">
+                                <div class="panel">
+                                    <div class="heading">
+                                        <span class="icon mif-info"></span>
+                                        <span class="title">Hilfe</span>
+                                    </div>
+                                    <div class="content">
+                                        <p class="text-accent">
+                                            Bitte tragen Sie auf der linken Seite Ihre persönlichen Daten ein, damit wir Sie identifizieren können.
+                                        </p>
+                                        <p class="text-accent">
+                                            Für die Eingabe Ihrer Adresse können Sie die automatische Vervollständigung verwenden. Sobald Sie Ihre Adresse eingeben, öffnet sich unterhalb des Eingabefeldes ein Fenster, mit Hilfe dessen Sie Ihre Eingabe vervollständigen können.
+                                        </p>
+                                        <!--
+                                        <p class="text-accent">
+                                            Beispiel:
+                                        </p>
+                                        <dl class="horizontal">
+                                            <dt>Vorname</dt>
+                                            <dd>Max</dd>
+                                            <dt>Nachname</dt>
+                                            <dd>Mustermann</dd>
+                                            <dt>Adresse</dt>
+                                            <dd>Musterstr. 21</dd>
+                                            <dd>70188 Stuttgart</dd>
+                                            <dt>Telefonnummer</dt>
+                                            <dd>0711 12345</dd>
+                                            <dt>Jahrgang</dt>
+                                            <dd>1941</dd>
+                                        </dl>
+-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="grid">
+                        <div class="row cells12">
+                            <div class="cell colspan7">
+                                <h3 class="header">Wohnsituation</h3>
+                                <div class="row">
+                                    <label class="input-control checkbox">
+                                    <input type="checkbox" data-show="indeterminate" id="living-alone">
+                                    <span class="check"></span>
+                                    <span class="caption">Ich wohne alleine in meiner Wohnung.</span>
+                                </label>
+                                </div>
+                                <div class="row">
+                                    <label class="input-control checkbox">
+                                    <input type="checkbox" data-show="indeterminate" id="living-walker">
+                                    <span class="check"></span>
+                                    <span class="caption">Ich verwende eine Gehhilfe in der Wohnung.</span>
+                                </label>
+                                </div>
+                                <div class="row">
+                                    <label class="input-control checkbox">
+                                    <input type="checkbox" data-show="indeterminate" id="living-pets">
+                                    <span class="check"></span>
+                                    <span class="caption">Ich habe freilaufende Haustiere.</span>
+                                    </label>
+                                </div>
+                                <div class="row">
+                                    <label class="input-control checkbox">
+                                    <input type="checkbox" data-show="indeterminate" id="living-fall">
+                                    <span class="check"></span>
+                                    <span class="caption">Ich sturze häufig.</span>
+                                    </label>
+                                </div>
+                                <div class="row">
+                                    <label class="input-control checkbox">
+                                    <input type="checkbox" data-show="indeterminate" id="living-dizziness">
+                                    <span class="check"></span>
+                                    <span class="caption">ich habe häufig Schwindelgefühle.</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="cell colspan5">
+                                <div class="panel">
+                                    <div class="heading">
+                                        <span class="icon mif-info"></span>
+                                        <span class="title">Hilfe</span>
+                                    </div>
+                                    <div class="content">
+                                        <p class="text-accent">
+                                            Bitte kreuzen Sie mit einem Klick auf das Kästchen die Aussagen an, die auf Ihre Wohnsituation zutreffen.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="grid">
+                        <div class="row cells12">
+                            <div class="cell colspan7">
+                                <h3 class="header">Notfallkontakt</h3>
+                                <div class="input-control modern text" data-role="input">
+                                    <input type="text" id="contact-firstname">
+                                    <span class="label">Vorname</span>
+                                    <span class="informer"></span>
+                                    <span class="placeholder" style="">Vorname</span>
+                                </div>
+                                <div class="input-control modern text" data-role="input">
+                                    <input type="text" id="contact-lastname">
+                                    <span class="label">Nachname</span>
+                                    <span class="informer"></span>
+                                    <span class="placeholder" style="">Nachname</span>
+                                </div>
+                                <div class="input-control modern text g-autocomplete" data-role="input">
+                                    <input type="text" id="contact-address">
+                                    <span class="label">Adresse</span>
+                                    <span class="informer"></span>
+                                    <span class="placeholder" style="">Adresse</span>
+                                </div>
+                                <div class="input-control modern text" data-role="input">
+                                    <input type="text" id="contact-phone">
+                                    <span class="label">Telefonnummer</span>
+                                    <span class="informer"></span>
+                                    <span class="placeholder" style="">Telefonnummer</span>
+                                </div>
+                            </div>
+                            <div class="cell colspan5">
+                                <div class="panel">
+                                    <div class="heading">
+                                        <span class="icon mif-info"></span>
+                                        <span class="title">Hilfe</span>
+                                    </div>
+                                    <div class="content">
+                                        <p class="text-accent">
+                                            Bitte tragen Sie auf der linken Seite Ihren Notfallkontakt ein, den wir bei einem Notfall kontaktieren können. Dies könnte Ihr Ehegatte, Tochter/Sohn oder ein Pflegedienst sein.
+                                        </p>
+                                        <p class="text-accent">
+                                            Achten Sie darauf, dass Sie die richtige Telefonnummer eintragen.
+                                        </p>
+<!--
+<p class="text-accent">
+    Beispiel:
+</p>
+<dl class="horizontal">
+    <dt>Vorname</dt>
+    <dd>Maria</dd>
+    <dt>Nachname</dt>
+    <dd>Musterfrau</dd>
+    <dt>Adresse</dt>
+    <dd>Goethestr. 12</dd>
+    <dd>70188 Stuttgart</dd>
+    <dt>Telefonnummer</dt>
+    <dd>0711 54321</dd>
+</dl>
+-->
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step">
+                    <h3 class="header">Fertig!</h3>
+                    <h3 class="sub-header">Zum Speichern Ihrer Einstellungen verwenden Sie bitte die Schaltfläche <span class="color-green">Fertigstellen</span>.</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<style>
+    .input-control.modern.text> input {
+        padding-right: 5px;
+    }
+
+</style>
+
+<script>
+    $(function() {
+        var inputs = $(".g-autocomplete");
+        inputs.each(function() {
+            var temp = document.getElementById($(this).children("input").attr("id"));
+            new google.maps.places.Autocomplete(temp);
+            $(this).children("input").attr('placeholder', '');
+        });
+
+        function setPerson(person) {
+            $("#person-firstname").val(person.firstname);
+            $("#person-lastname").val(person.lastname);
+            $("#person-address").val(person.address);
+            $("#person-vintage").val(person.vintage);
+            $("#person-phone").val(person.phone);
+        }
+
+        function setContact(contact) {
+            $("#contact-firstname").val(contact.firstname);
+            $("#contact-lastname").val(contact.lastname);
+            $("#contact-address").val(contact.address);
+            $("#contact-phone").val(contact.phone);
+        }
+
+        function setLiving(living) {
+            if (living.alone[0] == "true") {
+                $("#living-alone").prop('checked', 'true');
+            }
+            if (living.walker[0] == "true") {
+                $("#living-walker").prop('checked', 'true');
+            }
+            if (living.pets[0] == "true") {
+                $("#living-pets").prop('checked', 'true');
+            }
+            if (living.fall[0] == "true") {
+                $("#living-fall").prop('checked', 'true');
+            }
+            if (living.dizziness[0] == "true") {
+                $("#living-dizziness").prop('checked', 'true');
+            }
+        }
+
+        function getPerson() {
+            var myObject = new Object();
+            myObject.firstname = $("#person-firstname").val();
+            myObject.lastname = $("#person-lastname").val();
+            myObject.vintage = $("#person-vintage").val();
+            myObject.address = $("#person-address").val();
+            myObject.phone = $("#person-phone").val();
+            return myObject;
+        }
+
+        function getContact() {
+            var myObject = new Object();
+            myObject.firstname = $("#contact-firstname").val();
+            myObject.lastname = $("#contact-lastname").val();
+            myObject.address = $("#contact-address").val();
+            myObject.phone = $("#contact-phone").val();
+            return myObject;
+        }
+
+        function getLiving() {
+            var myObject = new Object();
+            myObject.alone = $("#living-alone").is(':checked');
+            myObject.walker = $("#living-walker").is(':checked');
+            myObject.pets = $("#living-pets").is(':checked');
+            myObject.fall = $("#living-fall").is(':checked');
+            myObject.dizziness = $("#living-dizziness").is(':checked');
+            return myObject;
+        }
+
+        var test = ["mif-user", "mif-home", "mif-contacts-dialer", "mif-checkmark"];
+        $("#wizard").wizard({
+            locale: "de",
+            buttons: {
+                cancel: {
+                    show: true,
+                    title: 'Abbrechen',
+                    group: 'right'
+                },
+                help: {
+                    show: true,
+                    title: 'Hilfe',
+                    group: 'right'
+                },
+                prior: {
+                    show: true,
+                    title: 'Zurück',
+                    group: 'left'
+                },
+                next: {
+                    show: true,
+                    title: 'Weiter',
+                    cls: 'primary',
+                    group: 'left'
+                },
+                finish: {
+                    show: true,
+                    title: 'Fertigstellen',
+                    group: 'left'
+                }
+            },
+            onFinish: function() {
+                window.location.href = "index.html";
+                var myObject = new Object();
+                myObject.person = getPerson();
+                myObject.contact = getContact();
+                myObject.living = getLiving();
+
+                $.ajax({
+                    method: "POST",
+                    url: "http://localhost:3000/smarpet/floor/settings",
+                    data: myObject
+                }).done(function(res) {
+                    console.log(res);
+                });
+            },
+            onCancel: function() {
+                window.location.href = "index.html";
+            }
+        });
+        $(".stepper ul li").each(function(index, element) {
+            $(this).html("<span class='" + test[index] + "'></span>");
+        });
+
+        $.ajax({
+            method: "GET",
+            url: "http://localhost:3000/smarpet/floor/settings",
+            dataType: "JSON"
+        }).done(function(res) {
+            setPerson(res.settings.person[0]);
+            setContact(res.settings.contact[0]);
+            setLiving(res.settings.living[0]);
+
+            $("input").focus();
+            $("input").blur();
+        });
+    });
+
+</script>
