@@ -19,6 +19,11 @@
                 <div class="row cells2">
                     <div class="cell">
                         <div class="input-control modern text" data-role="input">
+                            <input id="floorid-input" type="text" style="padding-right: 5px;" ng-model="patient.floorid" readonly>
+                            <span class="label">SensFloor-Nummer</span>
+                            <span class="informer"></span>
+                        </div>
+                        <div class="input-control modern text" data-role="input">
                             <input id="firstname-input" type="text" style="padding-right: 5px;" ng-model="patient.firstname" readonly>
                             <span class="label">Vorname</span>
                             <span class="informer"></span>
@@ -29,7 +34,7 @@
                             <span class="informer"></span>
                         </div>
                         <div class="input-control modern text" data-role="input">
-                            <input type="number" style="padding-right: 5px;" ng-model="patient.yearOfBirth" readonly>
+                            <input type="text" style="padding-right: 5px;" ng-model="patient.yearOfBirth" readonly>
                             <span class="label">Geburtsjahr</span>
                             <span class="informer"></span>
                         </div>
@@ -89,7 +94,7 @@
                                 <span class="placeholder" style="">Medikament eingeben</span>
                                 <button id="drug-button" ng-click="addDrug(drug.name)" class="button submit"><span class="mif-plus"></span></button>
                             </form>
-                            
+
                         </div>
                         <ul class="list list-drugs">
                             <li ng-repeat="drug in drugs" id="{{drug.id}}">{{drug.name}}<button class='button list-delete-button' ng-click=deleteDrug($index)><span class='mif-cross'></span></button></li>
@@ -128,6 +133,15 @@
                         <div class="input-control modern text" data-role="input">
                             <input type="text" style="padding-right: 5px;" ng-model="contact.phone" readonly>
                             <span class="label">Telefonnummer</span>
+                            <span class="informer"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cells2">
+                    <div class="cell">
+                        <div class="input-control modern text" data-role="input">
+                            <input type="text" style="padding-right: 5px;" ng-model="contact.email" readonly>
+                            <span class="label">Email</span>
                             <span class="informer"></span>
                         </div>
                     </div>
@@ -184,8 +198,9 @@
             }
         });
     }
+
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlnAfX9bD3wYAMivoES-5Jzb3-J5SvP54&signed_in=true&libraries=places&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpMR8d7SHge5tNO9ENktackYfVtOUury8&callback=initMap" async defer></script>
 <script>
     $(document).ready(function() {
         $("#tab-control").tabcontrol();

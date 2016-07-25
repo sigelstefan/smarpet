@@ -65,10 +65,16 @@
                                     <span class="placeholder" style="">Telefonnummer</span>
                                 </div>
                                 <div class="input-control modern text" data-role="input">
-                                    <input type="number" id="person-vintage">
+                                    <input type="text" id="person-vintage">
                                     <span class="label">Jahrgang</span>
                                     <span class="informer"></span>
                                     <span class="placeholder" style="">Jahrgang</span>
+                                </div>
+                                <div class="input-control modern text" data-role="input">
+                                    <input type="text" id="person-floorid">
+                                    <span class="label">Teppichnummer</span>
+                                    <span class="informer"></span>
+                                    <span class="placeholder" style="">Teppichnummer</span>
                                 </div>
                             </div>
                             <div class="cell colspan5">
@@ -84,24 +90,6 @@
                                         <p class="text-accent">
                                             Für die Eingabe Ihrer Adresse können Sie die automatische Vervollständigung verwenden. Sobald Sie Ihre Adresse eingeben, öffnet sich unterhalb des Eingabefeldes ein Fenster, mit Hilfe dessen Sie Ihre Eingabe vervollständigen können.
                                         </p>
-                                        <!--
-                                        <p class="text-accent">
-                                            Beispiel:
-                                        </p>
-                                        <dl class="horizontal">
-                                            <dt>Vorname</dt>
-                                            <dd>Max</dd>
-                                            <dt>Nachname</dt>
-                                            <dd>Mustermann</dd>
-                                            <dt>Adresse</dt>
-                                            <dd>Musterstr. 21</dd>
-                                            <dd>70188 Stuttgart</dd>
-                                            <dt>Telefonnummer</dt>
-                                            <dd>0711 12345</dd>
-                                            <dt>Jahrgang</dt>
-                                            <dd>1941</dd>
-                                        </dl>
--->
                                     </div>
                                 </div>
                             </div>
@@ -138,14 +126,14 @@
                                     <label class="input-control checkbox">
                                     <input type="checkbox" data-show="indeterminate" id="living-fall">
                                     <span class="check"></span>
-                                    <span class="caption">Ich sturze häufig.</span>
+                                    <span class="caption">Ich stürze häufig.</span>
                                     </label>
                                 </div>
                                 <div class="row">
                                     <label class="input-control checkbox">
                                     <input type="checkbox" data-show="indeterminate" id="living-dizziness">
                                     <span class="check"></span>
-                                    <span class="caption">ich habe häufig Schwindelgefühle.</span>
+                                    <span class="caption">Ich habe häufig Schwindelgefühle.</span>
                                     </label>
                                 </div>
                             </div>
@@ -194,6 +182,12 @@
                                     <span class="informer"></span>
                                     <span class="placeholder" style="">Telefonnummer</span>
                                 </div>
+                                <div class="input-control modern text" data-role="input">
+                                    <input type="email" id="contact-email">
+                                    <span class="label">E-Mail</span>
+                                    <span class="informer"></span>
+                                    <span class="placeholder" style="">E-Mail</span>
+                                </div>
                             </div>
                             <div class="cell colspan5">
                                 <div class="panel">
@@ -208,23 +202,6 @@
                                         <p class="text-accent">
                                             Achten Sie darauf, dass Sie die richtige Telefonnummer eintragen.
                                         </p>
-<!--
-<p class="text-accent">
-    Beispiel:
-</p>
-<dl class="horizontal">
-    <dt>Vorname</dt>
-    <dd>Maria</dd>
-    <dt>Nachname</dt>
-    <dd>Musterfrau</dd>
-    <dt>Adresse</dt>
-    <dd>Goethestr. 12</dd>
-    <dd>70188 Stuttgart</dd>
-    <dt>Telefonnummer</dt>
-    <dd>0711 54321</dd>
-</dl>
--->
-
                                     </div>
                                 </div>
                             </div>
@@ -251,6 +228,7 @@
 
 <script>
     $(function() {
+        var personid = 0;
         var inputs = $(".g-autocomplete");
         inputs.each(function() {
             var temp = document.getElementById($(this).children("input").attr("id"));
@@ -262,8 +240,10 @@
             $("#person-firstname").val(person.firstname);
             $("#person-lastname").val(person.lastname);
             $("#person-address").val(person.address);
-            $("#person-vintage").val(person.vintage);
+            $("#person-vintage").val(person.yearOfBirth);
             $("#person-phone").val(person.phone);
+            $("#person-floorid").val(person.floorid);
+            personid = person.id;
         }
 
         function setContact(contact) {
@@ -271,6 +251,7 @@
             $("#contact-lastname").val(contact.lastname);
             $("#contact-address").val(contact.address);
             $("#contact-phone").val(contact.phone);
+            $("#contact-email").val(contact.email);
         }
 
         function setLiving(living) {
@@ -293,11 +274,14 @@
 
         function getPerson() {
             var myObject = new Object();
+            myObject.id = personid;
+            console.log(myObject.id);
             myObject.firstname = $("#person-firstname").val();
             myObject.lastname = $("#person-lastname").val();
-            myObject.vintage = $("#person-vintage").val();
+            myObject.yearOfBirth = $("#person-vintage").val();
             myObject.address = $("#person-address").val();
             myObject.phone = $("#person-phone").val();
+            myObject.floorid = $("#person-floorid").val();
             return myObject;
         }
 
@@ -307,6 +291,7 @@
             myObject.lastname = $("#contact-lastname").val();
             myObject.address = $("#contact-address").val();
             myObject.phone = $("#contact-phone").val();
+            myObject.email = $("#contact-email").val();
             return myObject;
         }
 
@@ -352,18 +337,24 @@
                 }
             },
             onFinish: function() {
-                window.location.href = "index.html";
                 var myObject = new Object();
                 myObject.person = getPerson();
                 myObject.contact = getContact();
                 myObject.living = getLiving();
-
+                var url = "http://localhost:3001/smarpet/floor/settings";
+                if (myObject.person.id == 0) {
+                    console.log("insert");
+                    url = url + "/insert"
+                } else {
+                    console.log("update");
+                    url = url + "/update"
+                }
                 $.ajax({
                     method: "POST",
-                    url: "http://localhost:3000/smarpet/floor/settings",
+                    url: url,
                     data: myObject
                 }).done(function(res) {
-                    console.log(res);
+                    window.location.href = "index.html";
                 });
             },
             onCancel: function() {
@@ -376,7 +367,7 @@
 
         $.ajax({
             method: "GET",
-            url: "http://localhost:3000/smarpet/floor/settings",
+            url: "http://localhost:3001/smarpet/floor/settings",
             dataType: "JSON"
         }).done(function(res) {
             setPerson(res.settings.person[0]);

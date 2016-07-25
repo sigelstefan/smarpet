@@ -1,13 +1,30 @@
-<div class="app-bar green" style="margin-bottom:50px;" ng-controller="NavigationController">
-    <a class="app-bar-element" ui-sref="patients" ui-sref-opts="{reload: true}">SmarpetCenter</a>
-    <span class="app-bar-divider"></span>
-    <ul class="app-bar-menu">
-        <li ng-class="{ 'active' : isActive('/patients')}">
-            <a ui-sref="patients" ui-sref-opts="{reload: true}">Patienten</a>
-        </li>
-        <li ng-class="{ 'active' : isActive('/emergencies')}">
-            <a ui-sref="emergencies" ui-sref-opts="{reload: true}">Notrufe</a>
-        </li>
-    </ul>
-    <a class="app-bar-element place-right" href="/smarpet-floor/index.html">Floor</a>
+<style>
+    .notify {
+        display: inline-block;
+    }
+
+</style>
+
+<div ng-controller="NavigationController">
+    <div class="app-bar green" style="margin-bottom:20px;">
+        <a class="app-bar-element" ui-sref="patients" ui-sref-opts="{reload: true}">SmarpetCenter</a>
+        <span class="app-bar-divider"></span>
+        <ul class="app-bar-menu">
+            <li ng-class="{ 'active' : isActive('/patients')}">
+                <a ui-sref="patients" ui-sref-opts="{reload: true}">Patienten</a>
+            </li>
+            <li ng-class="{ 'active' : isActive('/emergencies')}">
+                <a ui-sref="emergencies" ui-sref-opts="{reload: true}">Notrufe</a>
+            </li>
+        </ul>
+        <a class="app-bar-element place-right" href="/smarpet-floor/index.html">Floor</a>
+    </div>
+
+    <div ng-show='hasEmergency'>
+        <div class="notify alert" ng-repeat="d in data">
+            <span class="notify-closer" ng-click="remove(d)"></span>
+            <span class="notify-title">{{d.event}}</span>
+            <span class="notify-text">Patient: {{d.firstname}} {{d.lastname}}<br/>Uhrzeit: {{d.time | parseDate}}</span>
+        </div>
+    </div>
 </div>

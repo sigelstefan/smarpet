@@ -1,17 +1,20 @@
 <?xml version="1.0"?>
 <settings>
   <person>
+    <id>3</id>
     <firstname>Luise</firstname>
     <lastname>Insel</lastname>
-    <vintage/>
-    <address/>
-    <phone>0711 12345</phone>
+    <yearOfBirth>1950</yearOfBirth>
+    <address>Asperg, Deutschland</address>
+    <phone>0711 0815</phone>
+    <floorid>02f0</floorid>
   </person>
   <contact>
     <firstname>Anna</firstname>
-    <lastname>Pflegerin</lastname>
-    <address>Roland Pfleger, Ulmer Straße, Stuttgart, Deutschland</address>
-    <phone>0711 54321</phone>
+    <lastname>Insel</lastname>
+    <address>Bad Cannstatt, Stuttgart, Deutschland</address>
+    <phone>0711 4483</phone>
+    <email>anna.insel@web.de</email>
   </contact>
   <living>
     <alone>true</alone>

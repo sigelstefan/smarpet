@@ -79,8 +79,8 @@
     }
 
     function geocodeAddress(geocoder, resultsMap, iw) {
-
         var addressString = document.getElementById('pac-input').value;
+        console.log(addressString);
         geocoder.geocode({
             'address': addressString
         }, function(results, status) {
@@ -109,11 +109,12 @@
     }
 
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlnAfX9bD3wYAMivoES-5Jzb3-J5SvP54&signed_in=true&libraries=places&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpMR8d7SHge5tNO9ENktackYfVtOUury8&callback=initMap" async defer></script>
 <script>
     $(document).ready(function() {
         $("#tab-control").tabcontrol();
         $("input").focus();
         $("input").blur();
     });
+
 </script>
